@@ -1,5 +1,5 @@
-import hellochart from 'customcharts/hellochart'
 import data from '../datasets/hello.csv'
+import hellochart from 'customcharts/hellochart'
 
 export default {
   chart: hellochart,
@@ -11,6 +11,6 @@ export default {
     name: { value: ['hello_column'] },
   },
   visualOptions: {
-    color: 'green'
+    color: 'green',
   },
 }
