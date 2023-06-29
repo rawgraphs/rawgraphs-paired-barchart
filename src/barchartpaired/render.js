@@ -1,11 +1,18 @@
 import * as d3 from 'd3'
+import { legend, dateFormats, labelsOcclusion } from '@rawgraphs/rawgraphs-core'
 import '../d3-styles.js'
 
-export function render(node, data, visualOptions, mapping, styles) {
+export function render(
+  node,
+  data,
+  visualOptions,
+  mapping,
+  originalData,
+  styles
+) {
   // destructurate visual visualOptions
   const {
     //artboard
-    title,
     background,
     width,
     height,
@@ -49,8 +56,6 @@ export function render(node, data, visualOptions, mapping, styles) {
     barsDomain,
   } = calcProps()
 
-  console.log('data', data)
-
   const svg = d3.select(node)
   const bounds = createBounds()
   const { x1Scale, x2Scale, x1ScaleReverse, yScale } = createScales()
@@ -59,8 +64,8 @@ export function render(node, data, visualOptions, mapping, styles) {
   const { bars1, bars2 } = createBars()
 
   function calcProps() {
-    const minTitleHeight = 300
-    const titleSize = height / 30
+    const minTitleHeight = 0
+    const titleSize = 0
 
     let boundWidth = width - marginLeft - marginRight
     let boundWidthOneChart = boundWidth - spaceCommonAxis
@@ -116,16 +121,6 @@ export function render(node, data, visualOptions, mapping, styles) {
       .attr('height', height)
       .attr('fill', background)
 
-    if (titleSize) {
-      svg
-        .append('text')
-        .text(title)
-        .attr('x', width / 2)
-        .attr('y', marginTop)
-        .style('text-anchor', 'middle')
-        .attr('font-size', titleSize)
-    }
-
     return svg.append('g').attr(
       'transform',
       `translate(
@@ -168,10 +163,10 @@ export function render(node, data, visualOptions, mapping, styles) {
       .append('g')
       .call(yAxisGenerator)
       .attr('text-anchor', 'left')
-    //yAxis.attr("transform", `translate(${(boundWidthOneChart)}, 0)`)//+ yAxis._groups[0][0].getBBox().width
+
     yAxis.attr('transform', `translate(${boundWidth / 2}, 0)`)
-    yAxis.select('path').remove() //attr("stroke", "none")
-    yAxis.selectAll('line').remove() //.attr("stroke", "none")
+    yAxis.select('path').remove()
+    yAxis.selectAll('line').remove()
     yAxis
       .selectAll('text')
       .attr('dx', '0')
@@ -217,12 +212,10 @@ export function render(node, data, visualOptions, mapping, styles) {
       const { x: x1 } = x1Axis._groups[0][0].getBBox()
       labelX1 = x1Axis
         .append('text')
-        .attr('font-family', 'sans-serif')
-        .attr('font-size', 10)
-        .attr('class', 'labels')
         .text(axisLeftLabel ? axisLeftLabel : mapping.x1.value)
-        .attr('fill', 'currentColor')
         .attr('dx', x1)
+        .styles(styles.axisLabel)
+
       labelX1.attr(
         'transform',
         `translate(${labelX1._groups[0][0].getBBox().width / 2}, ${-5})`
@@ -233,12 +226,10 @@ export function render(node, data, visualOptions, mapping, styles) {
       const { x: x2, width: widthX2 } = x2Axis._groups[0][0].getBBox()
       labelX2 = x2Axis
         .append('text')
-        .attr('font-family', 'sans-serif')
-        .attr('font-size', 10)
-        .attr('class', 'labels')
         .text(axisRightLabel ? axisRightLabel : mapping.x2.value)
-        .attr('fill', 'currentColor')
         .attr('dx', x2 + widthX2)
+        .styles(styles.axisLabel)
+
       labelX2.attr(
         'transform',
         `translate(${-labelX2._groups[0][0].getBBox().width / 2}, -5)`
@@ -248,11 +239,9 @@ export function render(node, data, visualOptions, mapping, styles) {
     if (axisVerticalLabelVisible) {
       labelY = yAxis
         .append('text')
-        .attr('font-family', 'sans-serif')
-        .attr('font-size', 10)
-        .attr('class', 'labels')
         .text(axisVerticalLabel ? axisVerticalLabel : mapping.y.value)
-        .attr('fill', 'currentColor')
+        .styles(styles.axisLabel)
+
       labelY.attr(
         'transform',
         `translate(${-labelY._groups[0][0].getBBox().width / 2}, 0)`
