@@ -1,7 +1,7 @@
 {
-  "name": "custom-rawcharts-template",
-  "version": "0.2.0",
-  "description": "Custom Raw Chart Template",
+  "name": "rawgraphs-paired-barchart",
+  "version": "0.1.0",
+  "description": "Paired Barchart for RAWGraphs",
   "jsdelivr": "lib/index.umd.js",
   "unpkg": "lib/index.umd.js",
   "main": "lib/index.cjs.js",
@@ -13,7 +13,32 @@
     "prebuild": "rimraf lib",
     "build": "rollup -c"
   },
-  "author": "",
+  "author": {
+    "url": "https://github.com/blindguardian50",
+    "name": "blindguardian50"
+  },
+  "contributors": [
+    {
+      "url": "https://github.com/steve1711",
+      "name": "steve1711"
+    },
+    {
+      "url": "https://github.com/TheAlmightySpaceWarrior",
+      "name": "TheAlmightySpaceWarrior"
+    },
+    {
+      "url": "https://github.com/wizardry8",
+      "name": "wizardry8"
+    },
+    {
+      "url": "https://github.com/kandrews99",
+      "name": "kandrews99"
+    },
+    {
+      "url": "https://github.com/mikima",
+      "name": "mikima"
+    }
+  ],
   "license": "Apache-2.0",
   "dependencies": {
     "css": "^3.0.0",
