@@ -64,5 +64,9 @@ In the **Color** panel you can associate one main tint that is then used to colo
 
 If you'd like to contribute, follow the RAWGraphs [custom template guide](https://github.com/rawgraphs/custom-rawcharts-template).
 
+## Credits
+
+Original code by @steve1711, @TheAlmightySpaceWarrior, @wizardry8 under the supervision of @kandrews99
+
 
 
