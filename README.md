@@ -1,36 +1,68 @@
-# Custom Raw Chart(s)
+# Paired barchart for RAWGraphs
 
-## Install
+This custom chart is intedend to be used in https://app.rawgraphs.io/.
 
-```sh
-npm install
-```
+## What are Paired Barcharts
 
-## Run Sandbox
+![](https://raw.githubusercontent.com/rawgraphs/rawgraphs-paired-barchart/master/src/barchartpaired/barchartpaired_thumb.svg)
 
-Develop your custom chart on your machine with livereload thanks to Webpack.
+This chart is designed for comparing two numerical dimensions across a set of ordered categories.
 
-```sh
-npm run sandbox
-```
+The most common application is for creating "[population pyramids](https://en.wikipedia.org/wiki/Population_pyramid)". In a population pyramid, one gender is represented on each side of the chart, with age groups arranged vertically. This allows you to observe the overall distribution of age groups and compare the distributions between males and females.
 
-You can find your charts at [http://localhost:9000](http://localhost:9000)
+## Installation
 
-For an in depth guide to add a chart see [this](https://github.com/rawgraphs/rawgraphs-charts/blob/master/docs/add-a-new-chart.md)
+- Download the latest release from the side panel on this page, or via [this link](https://github.com/rawgraphs/rawgraphs-paired-barchart/releases/latest/pairedbarchart.umd.js).
+- In [RAWgraphs interface](https://app.rawgraphs.io/), load a dataset. You can use [this sample](https://raw.githubusercontent.com/rawgraphs/rawgraphs-paired-barchart/master/example/datasets/population_2019.csv).
+- In the section `"2. Choose a chart"` scroll down and click on the button `"Load your chart"`
+- Select the `"Load from file"` tab
+- Drag and drop the downloaded file
+- Click on `"Load your chart"` button
+- A pop-up will inform you that you are loading an external piece of code, click on `"continue"` to load it
+- You are now ready to use the chart
 
-## Build
+## Tutorial
 
-Build your chart to use it in RAW.
+In this tutorial we'll create population pyramid for Germany in 2019.
 
-```sh
-npm run build
-```
+#### Dataset
 
-## Share
+Load the dataset you can find at [this link](https://raw.githubusercontent.com/rawgraphs/rawgraphs-paired-barchart/master/example/datasets/population_2019.csv). The dataset contains three columns: the age group, number of male people, and number of female people for that age group.
 
-- Go to RAW [websiste](https://dev.rawgraphs.io)
-- Click on "Add your chart!"
-- Upload the UMD build you can find it under `lib/index.umd.js`
-- Download the project (now the project contains also your chart)
-- Upload `.rawgraphs` file to for example [Gist](https://gist.github.com) or other share file services
-- Now you you can share your example and charts with your friend with: https://dev.rawgraphs.io?url=UPLOADED_URL
+#### Chart Selection
+
+select "Paired Barchart". If you don't see it, read the section [Installation](#Installation).
+
+#### Mapping
+
+Drag and drop the dimensions to the chart variables as it follows:
+
+* `Male` on `Left side`
+* `Female` on `Right side`
+* `Age` on `Y Axis`
+
+#### Customize
+
+The chart offers some options to customize the chart.
+
+In the **Axis** panel you'll find all the variables for handling the bottom axes ticks and their appearance.
+
+* In `Vertical label override` put as text "Age group"
+
+In the **Chart** you can define bars paddings, the internal space, and bars sorting
+
+* Set `Space for common axis` to 80
+
+In the **Color** panel you can associate one main tint that is then used to color the bars according to their value
+
+* Set the first `Color scheme` to "Red sequential"
+* Set the second `Color scheme` to "Green sequential"
+
+
+
+## Contribute
+
+If you'd like to contribute, follow the RAWGraphs [custom template guide](https://github.com/rawgraphs/custom-rawcharts-template).
+
+
+
