@@ -1,4 +1,4 @@
-# Paired barchart for RAWGraphs
+# Paired barchart for RAWGraphs <img src="https://raw.githubusercontent.com/rawgraphs/rawgraphs-paired-barchart/master/src/barchartpaired/barchartpaired.svg" alt="versus icon" height="40px" style="vertical-align: middle"/>
 
 This custom chart is intedend to be used in https://app.rawgraphs.io/.
 
