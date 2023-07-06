@@ -66,7 +66,5 @@ If you'd like to contribute, follow the RAWGraphs [custom template guide](https:
 
 ## Credits
 
-Original code by @steve1711, @TheAlmightySpaceWarrior, @wizardry8 under the supervision of @kandrews99
-
-
+Original code by [@blindguardian50](https://github.com/blindguardian50) [@steve1711](https://github.com/steve1711), [@TheAlmightySpaceWarrior](https://github.com/TheAlmightySpaceWarrior), [@wizardry8](https://github.com/wizardry8) under the supervision of [@kandrews99](https://github.com/kandrews99)
 
