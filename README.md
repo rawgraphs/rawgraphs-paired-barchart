@@ -27,7 +27,9 @@ In this tutorial we'll create population pyramid for Germany in 2019.
 
 #### Dataset
 
-Load the dataset you can find at [this link](https://raw.githubusercontent.com/rawgraphs/rawgraphs-paired-barchart/master/example/datasets/population_2019.csv). The dataset contains three columns: the age group, number of male people, and number of female people for that age group.
+In [RAWgraphs interface](https://app.rawgraphs.io/), load the dataset you can find at [this link](https://raw.githubusercontent.com/rawgraphs/rawgraphs-paired-barchart/master/example/datasets/population_2019.csv). You can download it and upload in RAWGraphs interface, or load it derecly in RAWGraphs using the `from URL`section in the interface.
+
+The dataset contains three columns: the age group, number of male people, and number of female people for that age group.
 
 #### Chart Selection
 
@@ -58,11 +60,35 @@ In the **Color** panel you can associate one main tint that is then used to colo
 * Set the first `Color scheme` to "Red sequential"
 * Set the second `Color scheme` to "Green sequential"
 
-
-
 ## Contribute
 
 If you'd like to contribute, follow the RAWGraphs [custom template guide](https://github.com/rawgraphs/custom-rawcharts-template).
+
+## Edit the code
+
+### Install dependencies
+
+```sh
+npm install
+```
+
+### Run Sandbox
+
+Modify the chart on your machine with livereload thanks to Webpack.
+
+```sh
+npm run sandbox
+```
+
+You can find your charts at [http://localhost:9000](http://localhost:9000)
+
+### Build
+
+Build the chart to use it in RAWGraphs.
+
+```sh
+npm run build
+```
 
 ## Credits
 
