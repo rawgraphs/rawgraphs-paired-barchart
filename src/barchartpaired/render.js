@@ -1,6 +1,7 @@
 import * as d3 from 'd3'
 import { legend, dateFormats, labelsOcclusion } from '@rawgraphs/rawgraphs-core'
 import '../d3-styles.js'
+import { use } from 'react'
 
 export function render(
   node,
@@ -34,6 +35,7 @@ export function render(
     labelRightRotation,
 
     //chart
+    useSameScale,
     spaceCommonAxis,
     sortBarsBy,
     padding,
@@ -130,21 +132,26 @@ export function render(
   }
 
   function createScales() {
+    const x1Range = d3.extent(data, x1Accessor)
+    const x2Range = d3.extent(data, x2Accessor)
+
+    const maxValue = Math.max(x1Range[1], x2Range[1])
+
     const x1Scale = d3
       .scaleLinear()
-      .domain(d3.extent(data, x1Accessor))
+      .domain(useSameScale ? [x1Range[0], maxValue] : x1Range)
       .range([0, boundWidthOneChart / 2])
       .nice()
 
     const x1ScaleReverse = d3
       .scaleLinear()
-      .domain(d3.extent(data, x1Accessor))
+      .domain(useSameScale ? [x1Range[0], maxValue] : x1Range)
       .range([boundWidth, (boundWidth + spaceCommonAxis) / 2])
       .nice()
 
     const x2Scale = d3
       .scaleLinear()
-      .domain(d3.extent(data, x2Accessor))
+      .domain(useSameScale ? [x2Range[0], maxValue] : x2Range)
       .range([0, boundWidthOneChart / 2])
       .nice()
 

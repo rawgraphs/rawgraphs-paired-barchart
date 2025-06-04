@@ -109,6 +109,13 @@ export const visualOptions = {
   },
 
   //chart
+  useSameScale: {
+    type: 'boolean',
+    label: 'use same scale for both axes',
+    default: true,
+    group: 'chart',
+  },
+
   spaceCommonAxis: {
     type: 'number',
     label: 'Space for common axis',
